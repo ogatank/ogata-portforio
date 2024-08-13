@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}小形勇翔　ポートフォリオ｜トップページ{% endblock %}
+{% block content %}
+    <main>
+         <!-- トップのビジュアル -->
+        <section id="top">
+            <div class="MainWrapp">
+                <div class="MainVisual">
+                    <h1 class="main-title">YUTO OGATA</h1>
+                    <p>インフラエンジニア ポートフォリオ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- JavaScriptの追加 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const wrapper = document.querySelector('.MainWrapp');
+        
+                for (let i = 0; i < 50; i++) {  // 50個のスパークルを生成
+                    const sparkle = document.createElement('div');
+                    sparkle.classList.add('sparkle');
+                    sparkle.style.left = Math.random() * 100 + 'vw';
+                    sparkle.style.top = Math.random() * 100 + 'vh';
+                    sparkle.style.animationDelay = Math.random() * 2 + 's';
+                    sparkle.style.animationDuration = 1 + Math.random() * 1.5 + 's';
+                    wrapper.appendChild(sparkle);
+                }
+            });
+        </script>
+
+         <!-- about -->
+         <section id="about">
+            <div class="profile-container">
+             <div class="about-area">
+                 <h2>About</h2>
+                 <div class="profile-card">
+                     <div class="profile-image">
+                        {% load static %}
+                        <img src="{% static 'images/profile.jpeg' %}" alt="プロフィール画像">
+                     </div>
+                     <div class="profile-description">
+                        <h3>自己紹介</h3>
+                        <p>小形　勇翔（オガタ　ユウト）<br>
+                        　　1999年6月24日生まれ<br>
+                            青森県出身　25歳<br>
+                            <br>
+                            広告代理店の営業として勤務しています。<br>
+                            現職では、主にセールス・ディレクター業務を行なっています。
+                            <br>
+                            インフラ領域に興味を持ち、AWS CLFとAWS SAAの取得をしました。<br>
+                            現在インフラエンジニアへの転職活動中です。よろしくお願いします。
+                        </p>
+                    </div>
+                 </div>
+                </div>
+             </div>
+            </div>
+         </section>
+         <!-- blog -->
+         <section id="blog">
+            <div class="blog-container">
+                <h2>Blog</h2>
+                <div class="blog-section">
+                    {% for post in posts %}
+                    <div class="blog-post">
+                        <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
+                        <p>{{ post.date_published }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'blog_list' %}" class="load-more">もっと見る</a> <!-- もっと見るボタン -->
+            </div>
+        </section>
+        
+         <!-- career -->
+        <!-- career -->
+        <section id="career">
+            <div class="career-area">
+                <h2>Career</h2>
+                <div class="timeline">
+                <!-- タイムラインアイテム -->
+                    <div class="timeline-container left">
+                        <div class="timeline-content">
+                            <h3>2018年4月</h3>
+                            <p>高校までは硬式野球部に所属。ポジションはセンターとピッチャー。<br>
+                               高校卒業後、青森県内の大学に進学し、経営学・法律を学ぶ。<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right">
+                        <div class="timeline-content">
+                            <h3>2019年2月</h3>
+                            <p>マクドナルドでアルバイトを始める</p>
+                            <p>・販売、接客<br>
+                            ・ピーク時のドライブスルーエリアのリーダー<br>
+                            ・新人アルバイトのトレーナー<br>
+                            </p>
+                            <p>ITがなかれば実現できなかった、革命的な売上増加や、生産性向上、新人教育の効率化を目の当たりにし、IT領域に興味を持ち始める。</p>  
+                        </div>
+                    </div>
+                    <div class="timeline-container left">
+                        <div class="timeline-content">
+                            <h3>2020年8月</h3>
+                            <p>台湾台南市の技術系大学に留学。<br>
+                            3ヶ月で中国語会話をマスターするという目標をたて、現地の大人・同世代の友人などに中国語でのコミュニケーションを積極的にとり続ける。<br>
+                            ルームメイトがプログラミングをしており、興味を持ち、学習を始める。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right">
+                        <div class="timeline-content">
+                            <h3>2023年4月</h3>
+                            <p>地元青森の広告代理店の営業として就職。<br>
+                            広告プロジェクトの立案・提案、ディレクション業務などを行う。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container left">
+                        <div class="timeline-content">
+                            <h3>2024年1月</h3>
+                            <p>アルバイト・現職の経験から、「それぞれ企業・人の素晴らしいサービスがITを活用しきれないことで価値を最大限活かしきれていない」ということに直面する。<br>
+                                IT技術で社会のため、人のためになりたいと思い、オンラインスクールでプログラミング・AWSの基礎を学ぶ。<br>
+                                様々な技術を学ぶ中で、ITの基盤・土台を作るインフラエンジニアになりたいと思い、AWSのCLF及びSAAを取得。<br>
+                                現在はインフラエンジニアを目指し転職活動中。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right">
+                        <div class="timeline-content">
+                            <h3>2024年7月</h3>
+                            <p>オンラインスクールを卒業し、インフラエンジニアへの転職活動中。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+{% endblock %}
+

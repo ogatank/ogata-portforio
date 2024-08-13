@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="小形勇翔のポートフォリオサイトです">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- header -->
+    <header id="header">
+        <div class="centered-logo">
+            <div class="header-logo">
+                <a href="{% url 'top' %}">YUTO OGATA</a>
+            </div>
+        </div>
+        <!-- header-area -->
+        <div class="header-area">
+            <ul>
+                <li>
+                    <dl>
+                        <dt></dt>
+                        <dd>
+                            <a href="tel:080-2838-3444" class="tel"><span>TEL:</span>080-2838-3444</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+            <a href="mailto:minigata0624@gmail.com" class="mail">
+                <span>Contact</span>
+            </a>
+        </div>
+        <!-- /header-area -->
+    </header>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024小形勇翔. All rights reserved.</p>
+        </div>
+    </footer>
+
+</html>

@@ -1,0 +1,502 @@
+/*ブログページ用スタイル */
+body {
+    background: #f4f4f4;
+    background-size: 400% 400%;
+    color: #1a1a1a;
+    font-family: 'Noto Sans JP', sans-serif;;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    color: #1c8f12da;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+h3 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#header {
+    padding: 20px 0; /* 高さを調整 */
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+#header .header-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.centered-logo a{
+    color: #1c8f12da;
+    font-size: 1.7rem;
+    letter-spacing: 0.05em;
+    font-weight: normal;
+    text-decoration: none; /* リンクの下線を消す */
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+}
+
+.tel {
+    text-decoration: none;
+    color: black;
+    /* 電話番号とメールお問い合わせのスペース空け　*/
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    color: #1c8f12da;
+    transition: transform 0.2s ease-in-out;
+}
+
+.tel span {
+    margin-right: 5px; /* TELと電話番号の間にスペースを追加 */
+}
+
+
+.mail {
+    position: relative;
+    top: 0;
+    padding: 8px 40px;
+    display: inline-block;
+    border: 1px solid #1c8f12da;
+    text-decoration: none;
+    outline: none;
+    color: #1c8f12da;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* ホバー時のアニメーション */
+.tel:hover, .mail:hover, .centered-logo:hover{
+    animation: bounce 0.6s ease infinite;
+}
+
+/* 跳ねるアニメーション */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* .MainWrappクラスの設定 */
+.MainWrapp {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #1c8f12da, #9ec0b2);
+    position: relative;
+    overflow: hidden; /* スパークルが外に出ないようにする */
+}
+
+
+.MainWrapp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 50px 50px, rgba(0, 100, 0, 0.3) 10%, transparent 10%),
+        radial-gradient(circle at 150px 150px, rgba(34, 139, 34, 0.3) 10%, transparent 10%),
+        radial-gradient(circle at 250px 250px, rgba(85, 107, 47, 0.3) 10%, transparent 10%);
+    background-size: 200px 200px;
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+
+
+.MainVisual {
+    text-align: center;
+    color: #ffffffda;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+
+.main-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.MainVisual p {
+    font-size: 1.5rem;
+}
+
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: sparkle 1.5s infinite ease-in-out;
+    opacity: 0;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+
+/* About */
+.profile-container {
+    display: flex;
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: center; /* 中央揃え */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; 
+    border: 3px solid #1c8f12da;
+    margin-bottom: 20px;
+}
+
+.profile-description {
+    max-width: 800px; /* テキストの最大幅を設定 */
+}
+
+.profile-description h3 {
+   color: #1c8f12da;
+}
+
+.profile-description p {
+    font-size: 1rem;
+    color: #1a1a1a;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+}
+
+/* プロフィールカード　*/
+.profile-card, .blog-post {
+    background: #f0f0f0; /* 背景色 */
+    border-radius: 15px; /* 角を丸くする */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* 立体的な影をつける */
+    padding: 20px;
+    margin: 20px 0;
+    display: flex; /* フレックスボックスで配置 */
+    align-items: center; /* 垂直方向の中央に配置 */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* アニメーション効果 */
+}
+
+.profile-card:hover, .blog-post:hover {
+    transform: translateY(-5px); /* ホバー時に少し持ち上げる */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3); /* ホバー時の影の強調 */
+}
+
+.profile-image img {
+    border-radius: 50%; /* 画像を丸くする */
+    width: 150px;
+    height: 150px;
+    margin-right: 20px; /* 画像とテキストの間にスペースを作る */
+}
+
+.profile-description {
+    flex: 1; /* 残りのスペースを埋める */
+}
+
+
+/* blog始まり */
+.blog-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.blog-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* 中央揃え */
+}
+
+.blog-post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    max-width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* 境目の区別 */
+}
+
+
+.blog-post img {
+    width: 100%;
+    height: 200px; /* 固定サイズ */
+    object-fit: cover; /* 画像のアスペクト比を保ちながらサイズに合わせる */
+    margin-bottom: 10px;
+}
+
+.blog-content {
+    margin-top: 10px;
+}
+
+.blog-content h2 {
+    font-size: 1.5em;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    color: blue;
+    text-decoration: none;
+}
+
+.pagination strong {
+    margin: 0 5px;
+    color: black;
+}
+
+/* キャリアエリア　*/
+.career-area {
+    position: relative;
+    padding: 50px 0;
+    background-color: #f4f4f9;
+}
+
+.career-area h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.timeline h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #1c8f12da;
+}
+
+.timeline p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-container.left {
+    left: 0;
+}
+
+.timeline-container.right {
+    left: 50%;
+}
+
+.timeline-container.left::after {
+    left: -17px;
+}
+
+.timeline-container.right::after {
+    right: -17px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+
+/* フッターのスタイル */
+footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: none;
+    color: #1c8f12da;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links a:hover {
+    color: #c0c0c0;
+}
+
+/* メディアクエリ */
+@media (max-width: 768px) {
+    .blog-post {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post {
+        width: 100%;
+    }
+}
+
+/* ブログリストページ　*/
+/* ブログ一覧のスタイル */
+.blog-list-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .blog-post {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post {
+        width: 100%;
+    }
+}
+
+
+.blog-post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.blog-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a, .pagination strong {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: #1c8f12da;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #14500e;
+}
+
+.pagination strong {
+    background-color: #14500e;
+}
+
+
+.load-more {
+    background:  #1c8f12da;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px #aaaaaa, -3px -3px 6px #eeeeee;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    cursor: pointer;
+    text-decoration: none; /* テキストの下線を消す */
+    display: inline-block;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.load-more:hover {
+    animation: bounce 0.6s ease infinite;
+  }
+

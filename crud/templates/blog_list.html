@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記事一覧</title>
+    <meta name="description" content="小形勇翔のポートフォリオサイトです">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog_list.css' %}">
+</head>
+<body>
+    <!-- header -->
+    <header id="header">
+        <div class="centered-logo">
+            <div class="header-logo">
+                <a href="{% url 'top' %}">YUTO OGATA</a>
+            </div>
+        </div>
+        <!-- header-area -->
+        <div class="header-area">
+            <ul>
+                <li>
+                    <dl>
+                        <dt></dt>
+                        <dd>
+                            <a href="tel:080-2838-3444" class="tel"><span>TEL:</span>080-2838-3444</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+            <a href="mailto:minigata0624@gmail.com" class="mail">
+                <span>Contact</span>
+            </a>
+        </div>
+        <!-- /header-area -->
+    </header>
+    <section id="blog-list">
+        <div class="blog-list-container">
+            <h2>ブログ一覧</h2>
+            {% for post in page_obj %}
+            <div class="blog-post">
+                <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
+                <p>{{ post.date_published }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">前のページ</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <strong>{{ num }}</strong>
+                {% else %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">次のページ</a>
+            {% endif %}
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024小形勇翔. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+

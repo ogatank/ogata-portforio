@@ -1,0 +1,175 @@
+/* blog_list.css */
+#header {
+    padding: 20px 0; /* 高さを調整 */
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    background-color: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+#header .header-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+}
+
+.centered-logo a{
+    color: #1c8f12da;
+    font-size: 1.7rem;
+    letter-spacing: 0.05em;
+    font-weight: normal;
+    text-decoration: none; /* リンクの下線を消す */
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+}
+
+.tel {
+    text-decoration: none;
+    color: black;
+    /* 電話番号とメールお問い合わせのスペース空け　*/
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    color: #1c8f12da;
+    transition: transform 0.2s ease-in-out;
+}
+
+.tel span {
+    margin-right: 5px; /* TELと電話番号の間にスペースを追加 */
+}
+
+
+.mail {
+    position: relative;
+    top: 0;
+    padding: 8px 40px;
+    display: inline-block;
+    border: 1px solid #1c8f12da;
+    text-decoration: none;
+    outline: none;
+    color: #1c8f12da;
+    transition: transform 0.2s ease-in-out;
+}
+
+h2 {
+    color: #1c8f12da;
+}
+
+/* ホバー時のアニメーション */
+.tel:hover, .mail:hover, .centered-logo:hover {
+    animation: bounce 0.6s ease infinite;
+}
+
+/* 跳ねるアニメーション */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+#blog-list {
+    background-color: #f8f8f8; /* 背景色を設定 */
+    padding: 20px; /* セクションの内側の余白 */
+}
+
+.blog-list-container {
+    max-width: 800px; /* コンテナの最大幅を設定 */
+    margin: 0 auto; /* コンテナを中央に配置 */
+    padding: 20px;
+    background-color: #ffffff; /* 記事リストの背景色 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* おしゃれな影を追加 */
+    border-radius: 10px; /* 角を丸める */
+}
+
+.blog-post {
+    margin-bottom: 20px; /* 各ブログ記事の下部に余白を追加 */
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd; /* 区切り線を追加 */
+}
+
+.blog-post h3 a {
+    color: #333; /* タイトルの色を設定 */
+    text-decoration: none;
+}
+
+.blog-post h3 a:hover {
+    color: #1c8f12da; /* ホバー時の色を設定 */
+}
+
+.pagination {
+    text-align: center; /* ページネーションを中央に配置 */
+    margin-top: 20px;
+}
+
+.pagination a, .pagination strong {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.pagination a {
+    background-color: #1c8f12da;
+    color: #fff;
+}
+
+.pagination a:hover{
+    background-color: rgb(165, 158, 158);
+    color: #fff;
+}
+
+.pagination strong {
+    background-color: #666;
+    color: #fff;
+}
+
+/* フッターのスタイル */
+footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: none;
+    color: #1c8f12da;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links a:hover {
+    color: #c0c0c0;
+}
+
+/* メディアクエリ */
+@media (max-width: 768px) {
+    .blog-post {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post {
+        width: 100%;
+    }
+}
